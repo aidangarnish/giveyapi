@@ -1,0 +1,29 @@
+﻿@model GiveyAPI.ViewModels.GiveyViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Givey API</h1>
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+
+
+        <h3>@Model.GiveyUser.first_name @Model.GiveyUser.last_name - @Model.GiveyUser.business.name</h3>
+
+        <ul>
+            @foreach (var item in Model.GiveyUserDonations.donations)
+            {
+                <li>@item.charity.name - £@item.amount - @item.created_at_dt.ToShortDateString()</li>
+            }
+        </ul>
+
+    </div>
+
+</div>
+@section Scripts {
+    <script src="~/Scripts/main.js"></script>
+}
